@@ -1,6 +1,6 @@
 # OSRS Drop Rate Simulator
 
-This R project simulates rare item drop mechanics in Old School RuneScape (OSRS) to analyse kills to first drop, lucky streaks, and drop clustering for drop rates ranging from 1/8 to 1/5,000. Inspired by my passion for OSRS and statistical modelling, it quantifies community concepts like "getting spooned" (early drops) and "going dry" (late drops) while demonstrating advanced R programming, statistical analysis, and data visualisation skills. The methodology has applications beyond gaming, such as modelling rare events in manufacturing or finance. See [the project report](report.html) for a detailed analysis.
+This R project simulates rare item drop mechanics in Old School RuneScape (OSRS) to analyse kills to first drop, lucky streaks, and drop clustering for drop rates ranging from 1/8 to 1/5,000. Inspired by my passion for OSRS and statistical modelling, it quantifies community concepts like "getting spooned" (early drops) and "going dry" (late drops) while demonstrating advanced R programming, statistical analysis, and data visualisation skills. The methodology has applications beyond gaming, such as modelling rare events in manufacturing or finance. See [the project report](https://joshuaculbert.github.io/osrs-drop-rate-simulator/report.html) for a detailed analysis.
 
 ## Introduction
 
@@ -102,7 +102,7 @@ Inter-drop times follow an exponential distribution, and dispersion indices (~1)
 - **Kills to First Drop**: Simulated means (e.g., 7.92 for 1/8) and outliers closely match theoretical geometric distribution values.
 - **Lucky Streaks**: Probabilities of 2+ drops in a 100-kill window (e.g., 18.78% for 1/128) align with Poisson-based expectations.
 - **Drop Clustering**: Dispersion indices (~1) and exponential inter-drop times confirm drops are random, with no clustering.
-- **Outlier Experience**: Players "going dry" (e.g., needing ~3x the drop rate, such as ~387 kills for 1/128) are outliers, occurring in ~1/20 players per drop. With many drops in OSRS, most players will experience this "unlucky" outlier status for some item, aligning with community discussions on platforms like the 2007scape subreddit. See [the project report](report.html) for details.
+- **Outlier Experience**: Players "going dry" (e.g., needing ~3x the drop rate, such as ~387 kills for 1/128) are outliers, occurring in ~1/20 players per drop. With many drops in OSRS, most players will experience this "unlucky" outlier status for some item, aligning with community discussions on platforms like the 2007scape subreddit. See [the project report](https://joshuaculbert.github.io/osrs-drop-rate-simulator/report.html) for details.
 
 These results quantify OSRS player experiences (e.g., "getting spooned" as early drops within the geometric distribution) and provide a robust statistical framework for rare event analysis.
 
