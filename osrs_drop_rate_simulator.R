@@ -4,6 +4,7 @@
 # 2. Lucky streaks (drops in a 100-kill window)
 # 3. Clustering of drops (inter-drop times)
 # Outputs include statistical summaries and visualisations.
+# Author: Joshua Culbert, March 2025
 
 # 1. Setup and Parameters ------------------------------------------------------
 library('ggplot2')
