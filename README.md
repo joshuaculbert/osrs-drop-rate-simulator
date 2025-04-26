@@ -1,4 +1,6 @@
 # OSRS Drop Rate Simulator
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Made with R](https://img.shields.io/badge/Made%20with-R-blue.svg)](https://www.r-project.org/)
 
 This R project simulates rare item drop mechanics in Old School RuneScape (OSRS) to analyse kills to first drop, lucky streaks, and drop clustering for drop rates ranging from 1/8 to 1/5,000. Inspired by my passion for OSRS and statistical modelling, it quantifies community concepts like "getting spooned" (early drops) and "going dry" (late drops) while demonstrating advanced R programming, statistical analysis, and data visualisation skills. The methodology has applications beyond gaming, such as modelling rare events in manufacturing or finance. See [the project report](https://joshuaculbert.github.io/osrs-drop-rate-simulator/report.html) for a detailed analysis.
 
