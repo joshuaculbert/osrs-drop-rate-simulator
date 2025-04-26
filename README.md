@@ -14,13 +14,13 @@ The project showcases my expertise in probability distributions, hypothesis test
 ## Repository Contents
 - `osrs_drop_rate_simulator.R`: R script for simulations and visualisations.
 - `report.Rmd`: R Markdown source for the report.
-- `report.html`: Knitted HTML report with detailed analysis.
+- `docs/report.html`: Knitted HTML report with detailed analysis (hosted on GitHub Pages).
 - `figures/`: Directory containing plots (CDF, lucky streaks, inter-drop times).
 
 ## Setup
 
 ### Prerequisites
-- **R**: Version 4.4.0 or higher
+- **R**: Version 4.0.0 or higher (developed and tested in R 4.5.0)
 - **Packages**: `ggplot2`, `knitr`, `rmarkdown`
 
 ### Installation
