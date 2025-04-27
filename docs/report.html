@@ -379,7 +379,7 @@ pre code {
 <ul>
 <li><strong>Kills to First Drop</strong>: The geometric distribution (<code>rgeom</code>) models the number of kills until the first drop, with success probability <span class="math inline">\(p = 1/\text{drop rate}\)</span>. Statistics (mean, variance, IQR, outliers) are compared to theoretical values (e.g., <span class="math inline">\(\text{mean} = 1/p\)</span>). Outliers are defined using the 1.5 × IQR rule: kills exceeding <span class="math inline">\(Q_3 + 1.5 \times \text{IQR}\)</span>, where <span class="math inline">\(Q_3\)</span> is the third quartile. This quantifies “going dry” (e.g., ~386 kills for 1/128, ~3× the drop rate).</li>
 <li><strong>Lucky Streaks</strong>: The binomial distribution (<code>rbinom</code>) simulates drops in a 100-kill window. The probability of 2+ drops is estimated empirically and theoretically using a Poisson approximation (<span class="math inline">\(\lambda = 100 \times p\)</span>).</li>
-<li><strong>Drop Clustering</strong>: Inter-drop times are tested against an exponential distribution (<span class="math inline">\(\text{rate} = p\)</span>) using the Kolmogorov-Smirnov (KS) test. Dispersion indices (variance/mean of drop counts in 100-kill windows) assess randomness (~1 indicates a Poisson process). KS test ties due to discrete data are addressed with minimal jitter (0–1).</li>
+<li><strong>Drop Clustering</strong>: Inter-drop times are tested against an exponential distribution (<span class="math inline">\(\text{rate} = p\)</span>) using the Kolmogorov-Smirnov (KS) test. Dispersion indices (variance/mean of drop counts in 100-kill windows) assess randomness (~1 indicates a Poisson process). KS test ties due to discrete data are addressed with minimal jitter (0-1).</li>
 </ul>
 <p>The script (<code>osrs_drop_rate_simulator.R</code>) defines a <code>simulate_drops</code> function for binomial simulations and computes statistics with <code>compute_stats</code>. Visualisations include CDF plots (log10 scale), streak histograms, and inter-drop time distributions, saved to <code>figures/</code>. Below is the core simulation function:</p>
 <pre class="r"><code>simulate_drops &lt;- function(n_trials, n_kills, probs) {
@@ -699,7 +699,7 @@ pre code {
 </tr>
 </tbody>
 </table>
-<p>Dispersion indices (~1, e.g., 1.03 for 1/128) support that inter-drop times approximately follow an exponential distribution, indicating random drops with no clustering. The Kolmogorov-Smirnov (KS) test yields small p-values (&lt; 0.01), likely due to the large sample size (10,000 trials) amplifying minor deviations, but these do not indicate practically significant clustering. Jitter (0–1) was applied to break ties in discrete data for the KS test, with warnings suppressed as they do not affect conclusions.</p>
+<p>Dispersion indices (~1, e.g., 1.03 for 1/128) support that inter-drop times approximately follow an exponential distribution, indicating random drops with no clustering. The Kolmogorov-Smirnov (KS) test yields small p-values (&lt; 0.01), likely due to the large sample size (10,000 trials) amplifying minor deviations, but these do not indicate practically significant clustering. Jitter (0-1) was applied to break ties in discrete data for the KS test, with warnings suppressed as they do not affect conclusions.</p>
 </div>
 <div id="visualisations" class="section level2">
 <h2>Visualisations</h2>

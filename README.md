@@ -32,12 +32,12 @@ The project showcases my expertise in probability distributions, hypothesis test
 2. Install the required packages:
    ```R
    install.packages(c("ggplot2", "knitr", "rmarkdown"))
-3. Ensure the `figures/` directory exists (automatically created by the script if missing).
-4. Run the script and knit the report:
+3. Run the script to generate tables and plots, then knit the report:
    ```R
    source("osrs_drop_rate_simulator.R")
-   rmarkdown::render("report.Rmd")
+   rmarkdown::render("report.Rmd", output_dir = "docs")
    ```
+   *Note*: For local use without GitHub Pages, you can omit `output_dir` to output `report.html` to the root directory.
 
 ### Running the Script
 Run `osrs_drop_rate_simulator.R` in R or RStudio. The script generates:
@@ -55,7 +55,7 @@ Key features:
 - **Simulation**: 10,000 trials, drop rates from 1/8 to 1/5,000, up to 5,000 kills for clustering.
 - **Statistical Validation**: Compares simulated vs. theoretical metrics (e.g., \( \text{mean} = 1/p \) for geometric).
 - **Visualisations**: ggplot2 plots (CDF, histograms) with log10 scales and faceting for clarity.
-- **KS Test Note**: Discrete inter-drop times cause KS test ties, addressed with minimal jitter (0–1) and warning suppression. This does not affect conclusions (see Results).
+- **KS Test Note**: Discrete inter-drop times cause KS test ties, addressed with minimal jitter (0-1) and warning suppression. This does not affect conclusions (see Results).
 
 ## Results
 
@@ -90,7 +90,7 @@ Dispersion indices (~1, e.g., 1.03 for 1/128) support approximately exponential 
 | 1/128     | < 0.01     | 1.03             |
 | 1/5000    | < 0.01     | 1.00             |
 
-*Note*: Small KS p-values (< 0.01) are due to large sample sizes (10,000 trials) detecting minor deviations from a continuous exponential distribution. Jitter (0–1) was added to break ties in discrete data, with warnings suppressed as they do not impact results.
+*Note*: Small KS p-values (< 0.01) are due to large sample sizes (10,000 trials) detecting minor deviations from a continuous exponential distribution. Jitter (0-1) was added to break ties in discrete data, with warnings suppressed as they do not impact results.
 
 ### Visualisations
 - **CDF Plot**: Empirical vs. theoretical cumulative distribution of kills to first drop (log10 scale).  
