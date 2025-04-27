@@ -49,7 +49,7 @@ Run `osrs_drop_rate_simulator.R` in R or RStudio. The script generates:
 The simulation models OSRS drop mechanics using probability distributions:
 - **Kills to First Drop**: The geometric distribution (`rgeom`) simulates the number of kills until the first drop. Statistics (mean, variance, IQR, outliers) are compared to theoretical values.
 - **Lucky Streaks**: The binomial distribution (`rbinom`) simulates drops in a 100-kill window. Empirical and theoretical probabilities of 2+ drops are calculated using a Poisson approximation.
-- **Drop Clustering**: Inter-drop times are tested against an exponential distribution (Kolmogorov-Smirnov test) to assess randomness. Dispersion indices (~1) confirm a Poisson process.
+- **Drop Clustering**: Inter-drop times are tested against an exponential distribution using the Kolmogorov-Smirnov (KS) test to assess randomness. Dispersion indices (variance/mean of drop counts) are computed to evaluate a Poisson process.
 
 Key features:
 - **Simulation**: 10,000 trials, drop rates from 1/8 to 1/5,000, up to 5,000 kills for clustering.
@@ -82,7 +82,7 @@ Probability of 2+ drops in a 100-kill window:
 *Note*: Empirical and theoretical probabilities align closely, confirming simulation accuracy.
 
 ### Drop Clustering
-Inter-drop times follow an exponential distribution, and dispersion indices (~1) indicate randomness:
+Dispersion indices (~1, e.g., 1.03 for 1/128) support approximately exponential inter-drop times, indicating randomness:
 
 | Drop Rate | KS p-value | Dispersion Index |
 |-----------|------------|------------------|
@@ -90,7 +90,7 @@ Inter-drop times follow an exponential distribution, and dispersion indices (~1)
 | 1/128     | < 0.01     | 1.03             |
 | 1/5000    | < 0.01     | 1.00             |
 
-*Note*: KS p-values are small due to large sample sizes (10,000 trials). Jitter (0–1) was added to break ties in the KS test, with warnings suppressed as they do not impact results.
+*Note*: Small KS p-values (< 0.01) are due to large sample sizes (10,000 trials) detecting minor deviations from a continuous exponential distribution. Jitter (0–1) was added to break ties in discrete data, with warnings suppressed as they do not impact results.
 
 ### Visualisations
 - **CDF Plot**: Empirical vs. theoretical cumulative distribution of kills to first drop (log10 scale).  
@@ -103,7 +103,7 @@ Inter-drop times follow an exponential distribution, and dispersion indices (~1)
 ## Key Findings
 - **Kills to First Drop**: Simulated means (e.g., 7.92 for 1/8) and outliers closely match theoretical geometric distribution values.
 - **Lucky Streaks**: Probabilities of 2+ drops in a 100-kill window (e.g., 18.78% for 1/128) align with Poisson-based expectations.
-- **Drop Clustering**: Dispersion indices (~1) and exponential inter-drop times confirm drops are random, with no clustering.
+- **Drop Clustering**: Dispersion indices (~1) support approximately exponential inter-drop times, indicating drops are random with no clustering.
 - **Outlier Experience**: Players "going dry" (e.g., needing ~3x the drop rate, such as ~387 kills for 1/128) are outliers, occurring in ~1/20 players per drop. With many drops in OSRS, most players will experience this "unlucky" outlier status for some item, aligning with community discussions on platforms like the 2007scape subreddit. See [the project report](https://joshuaculbert.github.io/osrs-drop-rate-simulator/report.html) for details.
 
 These results quantify OSRS player experiences (e.g., "getting spooned" as early drops within the geometric distribution) and provide a robust statistical framework for rare event analysis.
